@@ -17,12 +17,12 @@
 package main
 
 import (
+	statuspage "github.com/nycruz/pulumi-statuspage/provider"
+	"github.com/nycruz/pulumi-statuspage/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	xyz "github.com/pulumi/pulumi-xyz/provider"
-	"github.com/pulumi/pulumi-xyz/provider/pkg/version"
 )
 
 func main() {
 	// Modify the path to point to the new provider
-	tfbridge.Main("xyz", version.Version, xyz.Provider(), pulumiSchema)
+	tfbridge.Main("statuspage", version.Version, statuspage.Provider(), pulumiSchema)
 }
