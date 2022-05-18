@@ -16,6 +16,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/nycruz/pulumi-statuspage/sdk/go/statuspage"
 // 	"github.com/pulumi/pulumi-statuspage/sdk/go/statuspage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
