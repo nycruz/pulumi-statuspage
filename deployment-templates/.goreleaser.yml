@@ -5,7 +5,7 @@ before:
   hooks:
     - make tfgen
 builds:
-  - binary: provider-resource-statuspage
+  - binary: pulumi-resource-statuspage
     dir: provider
     env:
       - CGO_ENABLED=0
