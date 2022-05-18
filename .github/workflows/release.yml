@@ -30,6 +30,7 @@ env:
   # PUBLISH_PYPI: false
 jobs:
   publish_binary:
+    permissions: write-all
     name: publish
     runs-on: ubuntu-latest
     steps:
@@ -58,6 +59,7 @@ jobs:
         goversion:
         - 1.17.x
   publish_sdk:
+    permissions: write-all
     name: Publish SDKs
     runs-on: ubuntu-latest
     needs: publish_binary
