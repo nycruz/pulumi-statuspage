@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface GetComponentGroupsFilter {
+    name: string;
+    regex?: boolean;
+    values: string[];
+}
+
+export interface GetComponentGroupsFilterArgs {
+    name: pulumi.Input<string>;
+    regex?: pulumi.Input<boolean>;
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface GetComponentsFilter {
     name: string;
     regex?: boolean;

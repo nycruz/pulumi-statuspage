@@ -22,6 +22,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "statuspage:index/component:Component":
 		r = &Component{}
+	case "statuspage:index/componentGroup:ComponentGroup":
+		r = &ComponentGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"statuspage",
 		"index/component",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"statuspage",
+		"index/componentGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

@@ -22,6 +22,103 @@
         }
     },
     "types": {
+        "statuspage:index/getComponentGroupsComponentGroup:getComponentGroupsComponentGroup": {
+            "properties": {
+                "components": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this resource.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "position": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "components",
+                "description",
+                "id",
+                "name",
+                "position"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "statuspage:index/getComponentGroupsFilter:getComponentGroupsFilter": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "regex": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "values"
+            ]
+        },
         "statuspage:index/getComponentsComponent:getComponentsComponent": {
             "properties": {
                 "automationEmail": {
@@ -244,9 +341,141 @@
                 },
                 "type": "object"
             }
+        },
+        "statuspage:index/componentGroup:ComponentGroup": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as statuspage from \"@pulumi/statuspage\";\n\nconst myGroup = new statuspage.ComponentGroup(\"myGroup\", {\n    pageId: \"my_page_id\",\n    description: \"Created by terraform\",\n    components: [statuspage_component.my_component.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_statuspage as statuspage\n\nmy_group = statuspage.ComponentGroup(\"myGroup\",\n    page_id=\"my_page_id\",\n    description=\"Created by terraform\",\n    components=[statuspage_component[\"my_component\"][\"id\"]])\n```\n```csharp\nusing Pulumi;\nusing Statuspage = Pulumi.Statuspage;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myGroup = new Statuspage.ComponentGroup(\"myGroup\", new Statuspage.ComponentGroupArgs\n        {\n            PageId = \"my_page_id\",\n            Description = \"Created by terraform\",\n            Components = \n            {\n                statuspage_component.My_component.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/nycruz/pulumi-statuspage/sdk/go/statuspage\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := statuspage.NewComponentGroup(ctx, \"myGroup\", \u0026statuspage.ComponentGroupArgs{\n\t\t\tPageId:      pulumi.String(\"my_page_id\"),\n\t\t\tDescription: pulumi.String(\"Created by terraform\"),\n\t\t\tComponents: pulumi.StringArray{\n\t\t\t\tpulumi.Any(statuspage_component.My_component.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "components": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array with the IDs of the components in this group\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "More detailed description for this component group\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "An array with the IDs of the components in this group\n"
+                },
+                "pageId": {
+                    "type": "string",
+                    "description": "the ID of the page this component group belongs to\n"
+                }
+            },
+            "required": [
+                "components",
+                "name",
+                "pageId"
+            ],
+            "inputProperties": {
+                "components": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array with the IDs of the components in this group\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "More detailed description for this component group\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "An array with the IDs of the components in this group\n"
+                },
+                "pageId": {
+                    "type": "string",
+                    "description": "the ID of the page this component group belongs to\n"
+                }
+            },
+            "requiredInputs": [
+                "components",
+                "pageId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ComponentGroup resources.\n",
+                "properties": {
+                    "components": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array with the IDs of the components in this group\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "More detailed description for this component group\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "An array with the IDs of the components in this group\n"
+                    },
+                    "pageId": {
+                        "type": "string",
+                        "description": "the ID of the page this component group belongs to\n"
+                    }
+                },
+                "type": "object"
+            }
         }
     },
     "functions": {
+        "statuspage:index/getComponentGroups:getComponentGroups": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as statuspage from \"@pulumi/statuspage\";\n\nconst default = statuspage.getComponentGroups({\n    pageId: local.page_id,\n    filters: [{\n        name: \"name\",\n        values: [\n            \"value_1\",\n            \"value_2\",\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_statuspage as statuspage\n\ndefault = statuspage.get_component_groups(page_id=local[\"page_id\"],\n    filters=[statuspage.GetComponentGroupsFilterArgs(\n        name=\"name\",\n        values=[\n            \"value_1\",\n            \"value_2\",\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Statuspage = Pulumi.Statuspage;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var @default = Output.Create(Statuspage.GetComponentGroups.InvokeAsync(new Statuspage.GetComponentGroupsArgs\n        {\n            PageId = local.Page_id,\n            Filters = \n            {\n                new Statuspage.Inputs.GetComponentGroupsFilterArgs\n                {\n                    Name = \"name\",\n                    Values = \n                    {\n                        \"value_1\",\n                        \"value_2\",\n                    },\n                },\n            },\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/nycruz/pulumi-statuspage/sdk/go/statuspage\"\n\t\"github.com/pulumi/pulumi-statuspage/sdk/go/statuspage\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := statuspage.GetComponentGroups(ctx, \u0026GetComponentGroupsArgs{\n\t\t\tPageId: local.Page_id,\n\t\t\tFilters: []GetComponentGroupsFilter{\n\t\t\t\tGetComponentGroupsFilter{\n\t\t\t\t\tName: \"name\",\n\t\t\t\t\tValues: []string{\n\t\t\t\t\t\t\"value_1\",\n\t\t\t\t\t\t\"value_2\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getComponentGroups.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/statuspage:index/getComponentGroupsFilter:getComponentGroupsFilter"
+                        }
+                    },
+                    "pageId": {
+                        "type": "string",
+                        "description": "the ID of the page this component belongs to\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "pageId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getComponentGroups.\n",
+                "properties": {
+                    "componentGroups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/statuspage:index/getComponentGroupsComponentGroup:getComponentGroupsComponentGroup"
+                        }
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/statuspage:index/getComponentGroupsFilter:getComponentGroupsFilter"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "pageId": {
+                        "type": "string",
+                        "description": "the ID of the page this component belongs to\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "componentGroups",
+                    "pageId",
+                    "id"
+                ]
+            }
+        },
         "statuspage:index/getComponents:getComponents": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as statuspage from \"@pulumi/statuspage\";\n\nconst default = statuspage.getComponents({\n    pageId: local.page_id,\n    filters: [{\n        name: \"name\",\n        values: [\n            \"value_1\",\n            \"value_2\",\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_statuspage as statuspage\n\ndefault = statuspage.get_components(page_id=local[\"page_id\"],\n    filters=[statuspage.GetComponentsFilterArgs(\n        name=\"name\",\n        values=[\n            \"value_1\",\n            \"value_2\",\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Statuspage = Pulumi.Statuspage;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var @default = Output.Create(Statuspage.GetComponents.InvokeAsync(new Statuspage.GetComponentsArgs\n        {\n            PageId = local.Page_id,\n            Filters = \n            {\n                new Statuspage.Inputs.GetComponentsFilterArgs\n                {\n                    Name = \"name\",\n                    Values = \n                    {\n                        \"value_1\",\n                        \"value_2\",\n                    },\n                },\n            },\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/nycruz/pulumi-statuspage/sdk/go/statuspage\"\n\t\"github.com/pulumi/pulumi-statuspage/sdk/go/statuspage\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := statuspage.GetComponents(ctx, \u0026GetComponentsArgs{\n\t\t\tPageId: local.Page_id,\n\t\t\tFilters: []GetComponentsFilter{\n\t\t\t\tGetComponentsFilter{\n\t\t\t\t\tName: \"name\",\n\t\t\t\t\tValues: []string{\n\t\t\t\t\t\t\"value_1\",\n\t\t\t\t\t\t\"value_2\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {

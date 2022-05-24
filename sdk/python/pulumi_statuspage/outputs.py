@@ -9,9 +9,84 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'GetComponentGroupsComponentGroupResult',
+    'GetComponentGroupsFilterResult',
     'GetComponentsComponentResult',
     'GetComponentsFilterResult',
 ]
+
+@pulumi.output_type
+class GetComponentGroupsComponentGroupResult(dict):
+    def __init__(__self__, *,
+                 components: Sequence[str],
+                 description: str,
+                 id: str,
+                 name: str,
+                 position: int):
+        """
+        :param str id: The ID of this resource.
+        """
+        pulumi.set(__self__, "components", components)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "position", position)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Sequence[str]:
+        return pulumi.get(self, "components")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of this resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def position(self) -> int:
+        return pulumi.get(self, "position")
+
+
+@pulumi.output_type
+class GetComponentGroupsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str],
+                 regex: Optional[bool] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[bool]:
+        return pulumi.get(self, "regex")
+
 
 @pulumi.output_type
 class GetComponentsComponentResult(dict):

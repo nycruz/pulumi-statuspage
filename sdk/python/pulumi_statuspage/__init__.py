@@ -6,6 +6,8 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .component import *
+from .component_group import *
+from .get_component_groups import *
 from .get_components import *
 from .provider import *
 from ._inputs import *
@@ -27,6 +29,14 @@ _utilities.register(
   "fqn": "pulumi_statuspage",
   "classes": {
    "statuspage:index/component:Component": "Component"
+  }
+ },
+ {
+  "pkg": "statuspage",
+  "mod": "index/componentGroup",
+  "fqn": "pulumi_statuspage",
+  "classes": {
+   "statuspage:index/componentGroup:ComponentGroup": "ComponentGroup"
   }
  }
 ]

@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface GetComponentGroupsComponentGroup {
+    components: string[];
+    description: string;
+    /**
+     * The ID of this resource.
+     */
+    id: string;
+    name: string;
+    position: number;
+}
+
+export interface GetComponentGroupsFilter {
+    name: string;
+    regex?: boolean;
+    values: string[];
+}
+
 export interface GetComponentsComponent {
     automationEmail: string;
     description: string;

@@ -10,6 +10,233 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GetComponentGroupsComponentGroup struct {
+	Components  []string `pulumi:"components"`
+	Description string   `pulumi:"description"`
+	// The ID of this resource.
+	Id       string `pulumi:"id"`
+	Name     string `pulumi:"name"`
+	Position int    `pulumi:"position"`
+}
+
+// GetComponentGroupsComponentGroupInput is an input type that accepts GetComponentGroupsComponentGroupArgs and GetComponentGroupsComponentGroupOutput values.
+// You can construct a concrete instance of `GetComponentGroupsComponentGroupInput` via:
+//
+//          GetComponentGroupsComponentGroupArgs{...}
+type GetComponentGroupsComponentGroupInput interface {
+	pulumi.Input
+
+	ToGetComponentGroupsComponentGroupOutput() GetComponentGroupsComponentGroupOutput
+	ToGetComponentGroupsComponentGroupOutputWithContext(context.Context) GetComponentGroupsComponentGroupOutput
+}
+
+type GetComponentGroupsComponentGroupArgs struct {
+	Components  pulumi.StringArrayInput `pulumi:"components"`
+	Description pulumi.StringInput      `pulumi:"description"`
+	// The ID of this resource.
+	Id       pulumi.StringInput `pulumi:"id"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Position pulumi.IntInput    `pulumi:"position"`
+}
+
+func (GetComponentGroupsComponentGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetComponentGroupsComponentGroup)(nil)).Elem()
+}
+
+func (i GetComponentGroupsComponentGroupArgs) ToGetComponentGroupsComponentGroupOutput() GetComponentGroupsComponentGroupOutput {
+	return i.ToGetComponentGroupsComponentGroupOutputWithContext(context.Background())
+}
+
+func (i GetComponentGroupsComponentGroupArgs) ToGetComponentGroupsComponentGroupOutputWithContext(ctx context.Context) GetComponentGroupsComponentGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetComponentGroupsComponentGroupOutput)
+}
+
+// GetComponentGroupsComponentGroupArrayInput is an input type that accepts GetComponentGroupsComponentGroupArray and GetComponentGroupsComponentGroupArrayOutput values.
+// You can construct a concrete instance of `GetComponentGroupsComponentGroupArrayInput` via:
+//
+//          GetComponentGroupsComponentGroupArray{ GetComponentGroupsComponentGroupArgs{...} }
+type GetComponentGroupsComponentGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetComponentGroupsComponentGroupArrayOutput() GetComponentGroupsComponentGroupArrayOutput
+	ToGetComponentGroupsComponentGroupArrayOutputWithContext(context.Context) GetComponentGroupsComponentGroupArrayOutput
+}
+
+type GetComponentGroupsComponentGroupArray []GetComponentGroupsComponentGroupInput
+
+func (GetComponentGroupsComponentGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetComponentGroupsComponentGroup)(nil)).Elem()
+}
+
+func (i GetComponentGroupsComponentGroupArray) ToGetComponentGroupsComponentGroupArrayOutput() GetComponentGroupsComponentGroupArrayOutput {
+	return i.ToGetComponentGroupsComponentGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetComponentGroupsComponentGroupArray) ToGetComponentGroupsComponentGroupArrayOutputWithContext(ctx context.Context) GetComponentGroupsComponentGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetComponentGroupsComponentGroupArrayOutput)
+}
+
+type GetComponentGroupsComponentGroupOutput struct{ *pulumi.OutputState }
+
+func (GetComponentGroupsComponentGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetComponentGroupsComponentGroup)(nil)).Elem()
+}
+
+func (o GetComponentGroupsComponentGroupOutput) ToGetComponentGroupsComponentGroupOutput() GetComponentGroupsComponentGroupOutput {
+	return o
+}
+
+func (o GetComponentGroupsComponentGroupOutput) ToGetComponentGroupsComponentGroupOutputWithContext(ctx context.Context) GetComponentGroupsComponentGroupOutput {
+	return o
+}
+
+func (o GetComponentGroupsComponentGroupOutput) Components() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetComponentGroupsComponentGroup) []string { return v.Components }).(pulumi.StringArrayOutput)
+}
+
+func (o GetComponentGroupsComponentGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetComponentGroupsComponentGroup) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The ID of this resource.
+func (o GetComponentGroupsComponentGroupOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetComponentGroupsComponentGroup) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetComponentGroupsComponentGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetComponentGroupsComponentGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetComponentGroupsComponentGroupOutput) Position() pulumi.IntOutput {
+	return o.ApplyT(func(v GetComponentGroupsComponentGroup) int { return v.Position }).(pulumi.IntOutput)
+}
+
+type GetComponentGroupsComponentGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetComponentGroupsComponentGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetComponentGroupsComponentGroup)(nil)).Elem()
+}
+
+func (o GetComponentGroupsComponentGroupArrayOutput) ToGetComponentGroupsComponentGroupArrayOutput() GetComponentGroupsComponentGroupArrayOutput {
+	return o
+}
+
+func (o GetComponentGroupsComponentGroupArrayOutput) ToGetComponentGroupsComponentGroupArrayOutputWithContext(ctx context.Context) GetComponentGroupsComponentGroupArrayOutput {
+	return o
+}
+
+func (o GetComponentGroupsComponentGroupArrayOutput) Index(i pulumi.IntInput) GetComponentGroupsComponentGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetComponentGroupsComponentGroup {
+		return vs[0].([]GetComponentGroupsComponentGroup)[vs[1].(int)]
+	}).(GetComponentGroupsComponentGroupOutput)
+}
+
+type GetComponentGroupsFilter struct {
+	Name   string   `pulumi:"name"`
+	Regex  *bool    `pulumi:"regex"`
+	Values []string `pulumi:"values"`
+}
+
+// GetComponentGroupsFilterInput is an input type that accepts GetComponentGroupsFilterArgs and GetComponentGroupsFilterOutput values.
+// You can construct a concrete instance of `GetComponentGroupsFilterInput` via:
+//
+//          GetComponentGroupsFilterArgs{...}
+type GetComponentGroupsFilterInput interface {
+	pulumi.Input
+
+	ToGetComponentGroupsFilterOutput() GetComponentGroupsFilterOutput
+	ToGetComponentGroupsFilterOutputWithContext(context.Context) GetComponentGroupsFilterOutput
+}
+
+type GetComponentGroupsFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Regex  pulumi.BoolPtrInput     `pulumi:"regex"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetComponentGroupsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetComponentGroupsFilter)(nil)).Elem()
+}
+
+func (i GetComponentGroupsFilterArgs) ToGetComponentGroupsFilterOutput() GetComponentGroupsFilterOutput {
+	return i.ToGetComponentGroupsFilterOutputWithContext(context.Background())
+}
+
+func (i GetComponentGroupsFilterArgs) ToGetComponentGroupsFilterOutputWithContext(ctx context.Context) GetComponentGroupsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetComponentGroupsFilterOutput)
+}
+
+// GetComponentGroupsFilterArrayInput is an input type that accepts GetComponentGroupsFilterArray and GetComponentGroupsFilterArrayOutput values.
+// You can construct a concrete instance of `GetComponentGroupsFilterArrayInput` via:
+//
+//          GetComponentGroupsFilterArray{ GetComponentGroupsFilterArgs{...} }
+type GetComponentGroupsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetComponentGroupsFilterArrayOutput() GetComponentGroupsFilterArrayOutput
+	ToGetComponentGroupsFilterArrayOutputWithContext(context.Context) GetComponentGroupsFilterArrayOutput
+}
+
+type GetComponentGroupsFilterArray []GetComponentGroupsFilterInput
+
+func (GetComponentGroupsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetComponentGroupsFilter)(nil)).Elem()
+}
+
+func (i GetComponentGroupsFilterArray) ToGetComponentGroupsFilterArrayOutput() GetComponentGroupsFilterArrayOutput {
+	return i.ToGetComponentGroupsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetComponentGroupsFilterArray) ToGetComponentGroupsFilterArrayOutputWithContext(ctx context.Context) GetComponentGroupsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetComponentGroupsFilterArrayOutput)
+}
+
+type GetComponentGroupsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetComponentGroupsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetComponentGroupsFilter)(nil)).Elem()
+}
+
+func (o GetComponentGroupsFilterOutput) ToGetComponentGroupsFilterOutput() GetComponentGroupsFilterOutput {
+	return o
+}
+
+func (o GetComponentGroupsFilterOutput) ToGetComponentGroupsFilterOutputWithContext(ctx context.Context) GetComponentGroupsFilterOutput {
+	return o
+}
+
+func (o GetComponentGroupsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetComponentGroupsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetComponentGroupsFilterOutput) Regex() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetComponentGroupsFilter) *bool { return v.Regex }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetComponentGroupsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetComponentGroupsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetComponentGroupsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetComponentGroupsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetComponentGroupsFilter)(nil)).Elem()
+}
+
+func (o GetComponentGroupsFilterArrayOutput) ToGetComponentGroupsFilterArrayOutput() GetComponentGroupsFilterArrayOutput {
+	return o
+}
+
+func (o GetComponentGroupsFilterArrayOutput) ToGetComponentGroupsFilterArrayOutputWithContext(ctx context.Context) GetComponentGroupsFilterArrayOutput {
+	return o
+}
+
+func (o GetComponentGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetComponentGroupsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetComponentGroupsFilter {
+		return vs[0].([]GetComponentGroupsFilter)[vs[1].(int)]
+	}).(GetComponentGroupsFilterOutput)
+}
+
 type GetComponentsComponent struct {
 	AutomationEmail string `pulumi:"automationEmail"`
 	Description     string `pulumi:"description"`
@@ -244,10 +471,18 @@ func (o GetComponentsFilterArrayOutput) Index(i pulumi.IntInput) GetComponentsFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentGroupsComponentGroupInput)(nil)).Elem(), GetComponentGroupsComponentGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentGroupsComponentGroupArrayInput)(nil)).Elem(), GetComponentGroupsComponentGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentGroupsFilterInput)(nil)).Elem(), GetComponentGroupsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentGroupsFilterArrayInput)(nil)).Elem(), GetComponentGroupsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentsComponentInput)(nil)).Elem(), GetComponentsComponentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentsComponentArrayInput)(nil)).Elem(), GetComponentsComponentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentsFilterInput)(nil)).Elem(), GetComponentsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComponentsFilterArrayInput)(nil)).Elem(), GetComponentsFilterArray{})
+	pulumi.RegisterOutputType(GetComponentGroupsComponentGroupOutput{})
+	pulumi.RegisterOutputType(GetComponentGroupsComponentGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetComponentGroupsFilterOutput{})
+	pulumi.RegisterOutputType(GetComponentGroupsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetComponentsComponentOutput{})
 	pulumi.RegisterOutputType(GetComponentsComponentArrayOutput{})
 	pulumi.RegisterOutputType(GetComponentsFilterOutput{})

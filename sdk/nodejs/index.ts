@@ -6,6 +6,8 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./component";
+export * from "./componentGroup";
+export * from "./getComponentGroups";
 export * from "./getComponents";
 export * from "./provider";
 
@@ -20,6 +22,7 @@ export {
 
 // Import resources to register:
 import { Component } from "./component";
+import { ComponentGroup } from "./componentGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,12 +30,15 @@ const _module = {
         switch (type) {
             case "statuspage:index/component:Component":
                 return new Component(name, <any>undefined, { urn })
+            case "statuspage:index/componentGroup:ComponentGroup":
+                return new ComponentGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("statuspage", "index/component", _module)
+pulumi.runtime.registerResourceModule("statuspage", "index/componentGroup", _module)
 
 import { Provider } from "./provider";
 
