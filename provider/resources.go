@@ -92,7 +92,8 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"statuspage_component": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Component")},
+			"statuspage_component":       {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Component")},
+			"statuspage_component_group": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "ComponentGroup")},
 			// Map each resource in the Terraform provider to a Pulumi type. Two examples
 			// are below - the single line form is the common case. The multi-line form is
 			// needed only if you wish to override types or other default options.
@@ -107,7 +108,8 @@ func Provider() tfbridge.ProviderInfo {
 			// },
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"statuspage_components": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getComponents")},
+			"statuspage_components":       {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getComponents")},
+			"statuspage_component_groups": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getComponentGroups")},
 			// Map each resource in the Terraform provider to a Pulumi function. An example
 			// is below.
 			// "aws_ami": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getAmi")},
